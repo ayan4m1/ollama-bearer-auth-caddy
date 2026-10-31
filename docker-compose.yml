@@ -8,10 +8,13 @@ services:
     image: your-image-name:tag
     ports:
       - "8081:8081"
-    env_file:  # Import environment variables
-      - .env.local
+      - "11434:11434"
     environment:
-      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_HOST="0.0.0.0:11434"
+      - OLLAMA_ORIGINS="*"
+      - OLLAMA_API_KEY="${OLLAMA_API_KEY}"
+      - OLLAMA_DEBUG="1"
+      - HF_TOKEN="${HF_TOKEN}"
     volumes:
       - /usr/share/ollama/.ollama:/root/.ollama
     restart: unless-stopped
