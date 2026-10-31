@@ -26,7 +26,8 @@ RUN curl -fsSL https://ollama.com/install.sh | sh
 COPY Caddy/Caddyfile /etc/caddy/Caddyfile
 COPY Caddy/valid_keys.conf /etc/caddy/valid_keys.conf
 
-ENV OLLAMA_HOST=0.0.0.0 
+ENV OLLAMA_HOST="0.0.0.0:11434"
+ENV OLLAMA_ORIGINS="http://*"
 
 # Expose the port 
 EXPOSE 8081
