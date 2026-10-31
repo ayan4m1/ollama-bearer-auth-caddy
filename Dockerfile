@@ -1,9 +1,9 @@
 # Stage 1: Base Image with CUDA
-FROM nvidia/cuda:12.5.0-runtime-ubuntu22.04 AS base
+FROM nvidia/cuda:12.4.0-runtime-ubuntu22.04 AS base
 
 # Install dependencies including Python and Pip
 RUN apt-get update && \
-    apt-get install -y wget jq curl netcat python3 python3-pip
+    apt-get install -y wget jq curl netcat python3 python3-pip zstd
 
 # Install additional Python libraries needed for FastAPI
 RUN pip3 install fastapi uvicorn
