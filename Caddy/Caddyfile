@@ -16,6 +16,7 @@
         uri /validate
         copy_headers Authorization
         copy_headers Proxy-Status
+        copy_headers Origin
     }
 
     @apiAuth {
@@ -23,7 +24,7 @@
     }
 
     # Proxy authorized requests
-    reverse_proxy @apiAuth http://localhost:11434
+    reverse_proxy @apiAuth http://127.0.0.1:11434
 
     # Define a matcher for unauthorized access
     @unauthorized {
